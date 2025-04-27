@@ -11,6 +11,7 @@
   - Text Alignment  
   - Padding (Top, Right, Bottom, Left)  
   - Background Color
+- 🌈 **Color Flow**
 - 🎯 **Define Individual Class Overrides**
 - 🖱️ **Double-click** to quickly locate the script asset
 - 📋 **Right-click** context menu for extra utilities
