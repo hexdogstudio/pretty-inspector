@@ -1,1 +1,1 @@
-# pretty-inspector
+# Pretty Inspector | Unity
