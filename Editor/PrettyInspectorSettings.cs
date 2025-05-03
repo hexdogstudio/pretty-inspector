@@ -10,6 +10,7 @@ namespace HexTools.Editor
         public class Profile
         {
             [SerializeField] private Font m_Font;
+            [SerializeField] private FontStyle m_FontStyle;
             [SerializeField] private int m_FontSize = 14;
             [SerializeField] private Color m_FontColor = Color.white;
             [SerializeField] private TextAnchor m_TextAlignment = TextAnchor.MiddleLeft;
@@ -43,6 +44,7 @@ namespace HexTools.Editor
                     var style = new GUIStyle
                     {
                         fontSize = m_FontSize,
+                        fontStyle = m_FontStyle,
                         alignment = m_TextAlignment,
                         padding = textPadding,
                         normal = normalState
@@ -54,6 +56,7 @@ namespace HexTools.Editor
             }
 
             public Color background { get => m_Background; set => m_Background = value; }
+            public FontStyle fontStyle { get => m_FontStyle; set => m_FontStyle = value; }
         }
 
         public const string PREF_KEY = "prttyins-settings-guid";
@@ -62,9 +65,10 @@ namespace HexTools.Editor
         [SerializeField] private Color m_BottomColor = new Color(0.6f, 0.175f, 0.75f);
         [SerializeField] private bool m_EnableOverrides;
         [SerializeField] private bool m_EnablePreview = true;
-        [SerializeField, HideInInspector] private List<string> m_OverrideKeys;
-        [SerializeField, HideInInspector] private List<Profile> m_OverrideValues;
-        [NonSerialized] private Dictionary<string, Profile> m_Overrides;
+        [SerializeField] private int m_SuperClasses = 1;
+        [SerializeField, HideInInspector] private List<string> m_OverrideKeys = new List<string>();
+        [SerializeField, HideInInspector] private List<Profile> m_OverrideValues = new List<Profile>();
+        [NonSerialized] private Dictionary<string, Profile> m_Overrides = new Dictionary<string, Profile>();
 
         public Color topColor { get => m_TopColor; }
         public Color bottomColor { get => m_BottomColor; }
@@ -72,12 +76,10 @@ namespace HexTools.Editor
         public Dictionary<string, Profile> overrides { get => m_Overrides; }
         public bool enableOverrides { get => m_EnableOverrides; }
         public bool enablePreview { get => m_EnablePreview; }
+        public int superClasses { get => m_SuperClasses; }
 
         public void OnBeforeSerialize()
         {
-            if (m_OverrideKeys == null || m_OverrideValues == null)
-                return;
-
             m_OverrideKeys.Clear();
             m_OverrideValues.Clear();
 
@@ -87,6 +89,12 @@ namespace HexTools.Editor
                 m_OverrideValues.Add(kvp.Value);
             }
         }
+        public void AddOverride(string key, Profile profile)
+        {
+            m_OverrideKeys.Add(key);
+            m_OverrideValues.Add(profile);
+            m_Overrides.Add(key, profile);
+        }
         public void Reset()
         {
             m_DefaultProfile = new Profile();
@@ -94,9 +102,10 @@ namespace HexTools.Editor
             m_BottomColor = new Color(0.6f, 0.175f, 0.75f);
             m_EnableOverrides = false;
             m_EnablePreview = true;
-            m_OverrideKeys?.Clear();
-            m_OverrideValues?.Clear();
-            m_Overrides?.Clear();
+            m_SuperClasses = 1;
+            m_OverrideKeys.Clear();
+            m_OverrideValues.Clear();
+            m_Overrides.Clear();
         }
 
         public void OnAfterDeserialize()
