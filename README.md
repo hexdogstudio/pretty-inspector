@@ -1,11 +1,15 @@
 # Pretty Inspector | Unity
-<b>Pretty Inspector</b> is a Unity Editor extension that automatically enhances the appearance of all `MonoBehaviour` inspectors with stylish headers, better padding, and customizable overrides — without needing to modify your existing scripts.
 
-![Comparation](https://github.com/hexdogstudio/pretty-inspector/blob/main/.Promo/comparation.png)
+![Comparation](https://github.com/hexdogstudio/pretty-inspector/blob/main/Images/pretty-inspector-promo-img-04.png)
+
+<b>Pretty Inspector</b> is a Unity Editor extension that automatically enhances the appearance of all `MonoBehaviour` and or `ScriptableObject` inspectors with stylish headers, better padding, and customizable overrides — without needing to modify your existing scripts.
+
+![Comparation](https://github.com/hexdogstudio/pretty-inspector/blob/main/Images/pretty-inspector-promo-img-01.png)
 
 ## Features
 - ✨ **Custom Global Header Styling**  
-  - Font Family  
+  - Font Family
+  - Font Style
   - Font Size  
   - Font Color  
   - Text Alignment  
@@ -23,6 +27,8 @@
 - Open `Edit` → `Preferences` → `Plugins/Pretty Inspector`.
 - Customize the default font, colors, padding, and preview your changes live.
 
+![Comparation](https://github.com/hexdogstudio/pretty-inspector/blob/main/Images/pretty-inspector-promo-img-02.png)
+
 ### Adding Overrides
 >[!Note]
 > To use Overrides, you have to enable them in the Preferences.
@@ -31,7 +37,7 @@
 - Select the class you want to override.
 - Customize the style for that class separately.
 
-![Comparation](https://github.com/hexdogstudio/pretty-inspector/blob/main/.Promo/promo.png)
+![Comparation](https://github.com/hexdogstudio/pretty-inspector/blob/main/Images/pretty-inspector-promo-img-03.png)
 
 ## License
 - [MIT](https://choosealicense.com/licenses/mit/)
